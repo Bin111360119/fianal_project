@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         // 宣告Adapter並連結ListView
         adapter = ArrayAdapter(this,
             android.R.layout.simple_list_item_1, items)
-        findViewById<ListView>(R.id.listView).adapter = adapter
+        //findViewById<ListView>(R.id.listView).adapter = adapter
         // 設定監聽器
         setListener()
 
@@ -79,7 +79,9 @@ class MainActivity : AppCompatActivity() {
             else
                 try {
                     // 尋找相同書名的紀錄並更新price欄位的值
-                    dbrw.execSQL("UPDATE myTable SET price = ${edPrice.text} WHERE book LIKE '${edBook.text}'")
+                    val sql = "UPDATE myTable SET price = ? WHERE book = ?"
+                    dbrw.execSQL(sql, arrayOf(edPrice.text.toString(), edBook.text.toString()))
+                    //dbrw.execSQL("UPDATE myTable SET price = ${edPrice.text} WHERE book LIKE '${edBook.text}'")
                     showToast("更新:${edBook.text},價格:${edPrice.text}")
                     cleanEditText()
                 } catch (e: Exception) {
