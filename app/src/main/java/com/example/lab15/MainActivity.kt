@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
     }
 
     override fun onDestroy() {
@@ -112,7 +113,7 @@ class MainActivity : AppCompatActivity() {
             items.clear()
             showToast("共有${c.count}筆資料")
             for (i in 0 until c.count) {
-                items.add("書名:${c.getString(0)}\t\t\t\t內容:${c.getString(1)}")
+                items.add("大綱:${c.getString(0)}\t\t\t\t細節:${c.getString(1)}")
                 c.moveToNext()
             }
             adapter.notifyDataSetChanged()
