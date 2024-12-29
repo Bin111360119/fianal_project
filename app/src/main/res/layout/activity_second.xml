@@ -1,54 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:padding="16dp">
 
-
-
-    <LinearLayout
+    <!-- ListView to display items -->
+    <ListView
+        android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_height="0dp"
+        android:dividerHeight="1dp"
+        android:scrollbars="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnDeleteSelected" />
 
-        <TextView
-            android:id="@+id/tvBook"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="標題 :"
-            android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="@+id/edBook"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/edBook" />
+    <!-- Delete selected item button -->
+    <Button
+        android:id="@+id/btnDeleteSelected"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="刪除選擇項"
+        android:contentDescription="按鈕：刪除選擇的項目"
+        app:layout_constraintBottom_toTopOf="@id/btnUpdateSelected"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <EditText
-            android:id="@+id/edBook"
-            android:layout_width="0dp"
-            android:layout_height="56dp"
-            android:layout_marginHorizontal="8dp"
-            android:layout_marginTop="16dp"
-            android:ems="10"
-            android:hint="請輸入標題"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvBook"
-            app:layout_constraintTop_toTopOf="parent" />
+    <!-- Update selected item button -->
+    <Button
+        android:id="@+id/btnUpdateSelected"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="修改選擇項"
+        android:contentDescription="按鈕：修改選擇的項目"
+        app:layout_constraintBottom_toTopOf="@id/btnback"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <ListView
-            android:id="@+id/mainscreen"
-            android:layout_width="match_parent"
-            android:layout_height="490dp" />
+    <!-- Back button -->
+    <Button
+        android:id="@+id/btnback"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="返回"
+        android:contentDescription="按鈕：返回主頁"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <Button
-            android:id="@+id/btnback"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="上一頁" />
-
-
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
